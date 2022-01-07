@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Login FOrm</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="style3.css" rel="stylesheet">
+  </head>
+
+  <body>
+     
+    <div class="jumbotron">
+        <h1 class="display-4">Congratulation You're Successfully LogIn</h1>
+        <hr class="my-4">
+
+        <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
+        <p class="lead">
+          <button class="btn btn-primary btn-lg" type="submit">Go to homePage</button>
+        </p>
+
+      </div>
+
+      <table id="empty-table">
+
+      </table>
+
+        <div id="empty-div">
+
+        </div>
+
+      
+      <script>
+fetch('/users-data')
+  .then(response => response.json())
+  .then(data => renderHTML(data));
+
+        var empdiv=document.getElementById("empty-div")
+      
+        function renderHTML(data){
+        var ourtext=""
+
+        for(var i=0;i<data.length;i++){
+        ourtext +="<p>"+"My name is "+data[i].name+" My Email is "+data[i].email+"</p>"
+    }
+    empdiv.insertAdjacentHTML('beforeend',ourtext)
+
+}
+
+// var empdiv=document.getElementById("empty-div")
+//         var ourrequest=new XMLHttpRequest()
+
+//         ourrequest.open('GET',"/users-data")
+    
+//         ourrequest.onload=function(){
+//         var ourdata=JSON.parse(ourrequest.responseText)
+    
+//         renderHTML(ourdata)
+//       }
+    
+//         ourrequest.send()
+//         function renderHTML(data){
+//         var ourtext=""
+
+//         for(var i=0;i<data.length;i++){
+//         ourtext +="<p>"+"My name is "+data[i].name+" My Email is "+data[i].email+"</p>"
+//     }
+//     empdiv.insertAdjacentHTML('beforeend',ourtext)
+
+// }
+      </script>
+  </body>
+</html>
